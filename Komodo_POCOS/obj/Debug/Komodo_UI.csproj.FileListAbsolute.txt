@@ -1,0 +1,6 @@
+C:\Users\farid\Desktop\ElevenFiftyProjects\KomodoInsurance\KomodoInsurance\Komodo_POCOS\bin\Debug\Komodo_POCOS.exe.config
+C:\Users\farid\Desktop\ElevenFiftyProjects\KomodoInsurance\KomodoInsurance\Komodo_POCOS\bin\Debug\Komodo_POCOS.exe
+C:\Users\farid\Desktop\ElevenFiftyProjects\KomodoInsurance\KomodoInsurance\Komodo_POCOS\bin\Debug\Komodo_POCOS.pdb
+C:\Users\farid\Desktop\ElevenFiftyProjects\KomodoInsurance\KomodoInsurance\Komodo_POCOS\obj\Debug\Komodo_UI.csproj.CoreCompileInputs.cache
+C:\Users\farid\Desktop\ElevenFiftyProjects\KomodoInsurance\KomodoInsurance\Komodo_POCOS\obj\Debug\Komodo_POCOS.exe
+C:\Users\farid\Desktop\ElevenFiftyProjects\KomodoInsurance\KomodoInsurance\Komodo_POCOS\obj\Debug\Komodo_POCOS.pdb
