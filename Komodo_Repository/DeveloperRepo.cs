@@ -23,7 +23,7 @@ namespace Komodo_Repository
         }
 
         //Update
-        public void UpdateDevelopersFromList(int originalId, Developer newDev)
+        public bool UpdateDevelopersFromList(int originalId, Developer newDev)
         {
             // Find the content
             Developer oldDev = GetDeveloperByID(originalId);
@@ -35,6 +35,12 @@ namespace Komodo_Repository
                 oldDev.FirstName = newDev.FirstName;
                 oldDev.LastName = newDev.LastName;
                 oldDev.HasPluralsightAccess = newDev.HasPluralsightAccess;
+
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
 

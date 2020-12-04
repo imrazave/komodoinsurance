@@ -1,0 +1,10 @@
+C:\Users\farid\Desktop\ElevenFiftyProjects\KomodoInsurance\Komodo_Console\bin\Debug\Komodo_Console.exe.config
+C:\Users\farid\Desktop\ElevenFiftyProjects\KomodoInsurance\Komodo_Console\bin\Debug\Komodo_Console.exe
+C:\Users\farid\Desktop\ElevenFiftyProjects\KomodoInsurance\Komodo_Console\bin\Debug\Komodo_Console.pdb
+C:\Users\farid\Desktop\ElevenFiftyProjects\KomodoInsurance\Komodo_Console\bin\Debug\Komodo_Repository.dll
+C:\Users\farid\Desktop\ElevenFiftyProjects\KomodoInsurance\Komodo_Console\bin\Debug\Komodo_Repository.pdb
+C:\Users\farid\Desktop\ElevenFiftyProjects\KomodoInsurance\Komodo_Console\obj\Debug\Komodo_Console.csprojAssemblyReference.cache
+C:\Users\farid\Desktop\ElevenFiftyProjects\KomodoInsurance\Komodo_Console\obj\Debug\Komodo_Console.csproj.CoreCompileInputs.cache
+C:\Users\farid\Desktop\ElevenFiftyProjects\KomodoInsurance\Komodo_Console\obj\Debug\Komodo_Console.csproj.CopyComplete
+C:\Users\farid\Desktop\ElevenFiftyProjects\KomodoInsurance\Komodo_Console\obj\Debug\Komodo_Console.exe
+C:\Users\farid\Desktop\ElevenFiftyProjects\KomodoInsurance\Komodo_Console\obj\Debug\Komodo_Console.pdb

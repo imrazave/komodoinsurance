@@ -21,7 +21,7 @@ namespace Komodo_Repository
             return _listOfTeams;
         }
         //Update
-        public void UpdateTeamsFromList(int originalTeamId, DevTeam newTeam)
+        public bool UpdateTeamsFromList(int originalTeamId, DevTeam newTeam)
         {
             // Find the content
             DevTeam oldTeam = GetTeamByID(originalTeamId);
@@ -31,6 +31,12 @@ namespace Komodo_Repository
             {
                 oldTeam.TeamID = newTeam.TeamID;
                 oldTeam.TeamName = newTeam.TeamName;
+
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
         //Delete

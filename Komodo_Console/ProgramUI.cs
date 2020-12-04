@@ -152,6 +152,14 @@ namespace Komodo_POCOS
                 Console.WriteLine($"ID: {developer.EmployeeID}\n" +
                     $"First Name: {developer.FirstName}\n" +
                     $"Last Name: {developer.LastName}\n");
+                if (developer.HasPluralsightAccess)
+                {
+                    Console.WriteLine("Does this developer have pluralsight access?: Yes");
+                }
+                else
+                {
+                    Console.WriteLine("Does this developer have pluralsight access?: No");
+                }
             }
         }
         // View developers by ID
@@ -181,7 +189,55 @@ namespace Komodo_POCOS
         //Update existing developer
         private void UpdateExistingDeveloper()
         {
+            // Display all developers
+            ViewAllDevelopers();
 
+            // Ask for the ID of the developer to be update
+            Console.WriteLine("Enter the ID of the developer you'd like to update");
+
+            // Get that ID
+            string oldDevString = Console.ReadLine();
+            int oldDev = int.Parse(oldDevString);
+
+            // We will build a new object
+            Developer newDeveloper = new Developer();
+
+            //EmployeeID
+            Console.WriteLine("Enter the ID of the Employee");
+            string IdAsString = Console.ReadLine();
+            newDeveloper.EmployeeID = int.Parse(IdAsString);
+
+            //FirstName
+            Console.WriteLine("Enter the first name for the employee:");
+            newDeveloper.FirstName = Console.ReadLine();
+
+            //LastName
+            Console.WriteLine("Enter the last name for the employee:");
+            newDeveloper.LastName = Console.ReadLine();
+
+            //HasPluralsightAccess
+            Console.WriteLine("Does this Employee Have PluralSight Access? (y/n)");
+            string pluralSight = Console.ReadLine().ToLower();
+            if (pluralSight == "y")
+            {
+                newDeveloper.HasPluralsightAccess = true;
+            }
+            else
+            {
+                newDeveloper.HasPluralsightAccess = false;
+            }
+
+            // Verify the update worked
+            bool wasUpdated = _devRepo.UpdateDevelopersFromList(oldDev, newDeveloper);
+
+            if (wasUpdated)
+            {
+                Console.WriteLine("Content successfully updated!");
+            }
+            else
+            {
+                Console.WriteLine("Could not update content.");
+            }
         }
         //Delete existing developer
         private void DeleteExistingDeveloper()
@@ -212,6 +268,7 @@ namespace Komodo_POCOS
         //Create new team
         private void CreateNewTeam()
         {
+            Console.Clear();
             DevTeam newDevTeam = new DevTeam();
 
             //TeamID
@@ -243,7 +300,39 @@ namespace Komodo_POCOS
         //Update a team
         private void UpdateATeam()
         {
+            //Display all teams
+            ViewAllTeams();
 
+            //Ask for the ID of the team that you want to update
+            Console.WriteLine("Enter the ID of the team you would like to update");
+
+            //Get that ID
+            string stringOldTeamID = Console.ReadLine();
+            int OldTeamID = int.Parse(stringOldTeamID);
+
+            //We will build a new object
+            DevTeam newDevTeam = new DevTeam();
+
+            //TeamID
+            Console.WriteLine("Enter a Team ID (must be an integer):");
+            string teamId = Console.ReadLine();
+            newDevTeam.TeamID = int.Parse(teamId);
+
+            //TeamName
+            Console.WriteLine("Enter A Team Name");
+            newDevTeam.TeamName = Console.ReadLine();
+
+            // Verify the update worked 
+            bool wasUpdated = _devTeamRepo.UpdateTeamsFromList(OldTeamID, newDevTeam);
+
+            if (wasUpdated)
+            {
+                Console.WriteLine("Team successfully updated!");
+            }
+            else
+            {
+                Console.WriteLine("Could not update content.");
+            }
         }
         //Delete a team
         private void DeleteATeam()
