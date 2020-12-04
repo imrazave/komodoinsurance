@@ -10,9 +10,12 @@ namespace Komodo_POCOS
     class ProgramUI
     {
         private DeveloperRepo _devRepo = new DeveloperRepo();
+        private DevTeamRepo _devTeamRepo = new DevTeamRepo();
         // Method that runs/starts the application
         public void Run()
         {
+            SeedDeveloperList();
+            SeedTeamList();
             Menu();
         }
 
@@ -104,8 +107,9 @@ namespace Komodo_POCOS
             }
         }
         // Create new developer
-        private void CreateNewDeveloper()
+        public void CreateNewDeveloper()
         {
+            Console.Clear();
             Developer newDeveloper = new Developer();
 
             //EmployeeID
@@ -132,17 +136,47 @@ namespace Komodo_POCOS
             {
                 newDeveloper.HasPluralsightAccess = false;
             }
+
+            _devRepo.AddDeveloperToList(newDeveloper);
         }
 
         // View all developers
         private void ViewAllDevelopers()
         {
+            Console.Clear();
 
+            List<Developer> listOfDevelopers = _devRepo.GetDeveloperList();
+
+            foreach(Developer developer in listOfDevelopers)
+            {
+                Console.WriteLine($"ID: {developer.EmployeeID}\n" +
+                    $"First Name: {developer.FirstName}\n" +
+                    $"Last Name: {developer.LastName}\n");
+            }
         }
         // View developers by ID
         private void ViewDevelopersByID()
         {
+            Console.Clear();
+            Console.WriteLine("Please enter an ID");
+            //Prompt the user to give an ID
+            string stringId = Console.ReadLine();
+            int id = int.Parse(stringId);
 
+            //Find the developer by that name
+            Developer developer = _devRepo.GetDeveloperByID(id);
+
+            //Display said content if it isn't null
+            if (developer != null)
+            {
+                Console.WriteLine($"ID: {developer.EmployeeID}\n" +
+                      $"First Name: {developer.FirstName}\n" +
+                      $"Last Name: {developer.LastName}\n");
+            }
+            else
+            {
+                Console.WriteLine("No Developer By That ID");
+            }
         }
         //Update existing developer
         private void UpdateExistingDeveloper()
@@ -152,7 +186,28 @@ namespace Komodo_POCOS
         //Delete existing developer
         private void DeleteExistingDeveloper()
         {
+            Console.Clear();
 
+            ViewAllDevelopers();
+
+            //Get the ID they want to remove
+            Console.WriteLine("Enter the ID of the developer you want to remove");
+
+            string input = Console.ReadLine();
+            int id = int.Parse(input);
+
+            //Call the delete method
+            bool wasDeleted = _devRepo.RemoveDeveloperFromList(id);
+
+            //If the content was deleted, say so
+            if (wasDeleted)
+            {
+                Console.WriteLine("The content was successfully deleted.");
+            }
+            else
+            {
+                Console.WriteLine("The content could not be deleted.");
+            }
         }
         //Create new team
         private void CreateNewTeam()
@@ -167,11 +222,23 @@ namespace Komodo_POCOS
             //TeamName
             Console.WriteLine("Enter A Team Name");
             newDevTeam.TeamName = Console.ReadLine();
+
+            _devTeamRepo.AddTeamToList(newDevTeam);
+
         }
         //View all teams
+ 
         private void ViewAllTeams()
         {
+            Console.Clear();
 
+            List<DevTeam> listOfTeams = _devTeamRepo.GetDevTeamList();
+
+            foreach (DevTeam team in listOfTeams)
+            {
+                Console.WriteLine($"Team ID: {team.TeamID}\n" +
+                    $"Team Name: {team.TeamName}\n");
+            }
         }
         //Update a team
         private void UpdateATeam()
@@ -181,7 +248,28 @@ namespace Komodo_POCOS
         //Delete a team
         private void DeleteATeam()
         {
+            ViewAllTeams();
 
+            //Get the team that they want to remove
+
+            Console.WriteLine("Enter the ID of the team that you want to remove.");
+
+            string input = Console.ReadLine();
+            int id = int.Parse(input);
+
+            // Call the delete method
+            bool wasDeleted = _devTeamRepo.RemoveTeamFromList(id);
+
+            //if the content was deleted, say so
+            //Otherwise state it could not be deleted
+            if (wasDeleted)
+            {
+                Console.WriteLine("The content was successfully deleted.");
+            }
+            else
+            {
+                Console.WriteLine("The content could not be deleted.");
+            }
         }
         //Return a list of developers needing PluralSight
         private void PluralSight()
@@ -191,6 +279,28 @@ namespace Komodo_POCOS
         //Add Multiple Developers to a Team
         private void MultiDev()
         {
+
+        }
+        //Seed methods
+        private void SeedDeveloperList()
+        {
+            Developer daveSmith = new Developer("Dave", "Smith", 1, true);
+            Developer joeKemp = new Developer("Joe", "Kemp", 2, false);
+            Developer brianJones = new Developer("Brian", "Jones", 3, true);
+
+            _devRepo.AddDeveloperToList(daveSmith);
+            _devRepo.AddDeveloperToList(joeKemp);
+            _devRepo.AddDeveloperToList(brianJones);
+        }
+        private void SeedTeamList()
+        {
+            DevTeam teamVenture = new DevTeam("Team Venture", 1);
+            DevTeam teamAlpha = new DevTeam("Team Alpha", 2);
+            DevTeam teamBeta = new DevTeam("Team Beta", 3);
+
+            _devTeamRepo.AddTeamToList(teamVenture);
+            _devTeamRepo.AddTeamToList(teamAlpha);
+            _devTeamRepo.AddTeamToList(teamBeta);
 
         }
     }

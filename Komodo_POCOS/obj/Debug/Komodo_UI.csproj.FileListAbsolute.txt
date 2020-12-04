@@ -4,3 +4,13 @@ C:\Users\farid\Desktop\ElevenFiftyProjects\KomodoInsurance\KomodoInsurance\Komod
 C:\Users\farid\Desktop\ElevenFiftyProjects\KomodoInsurance\KomodoInsurance\Komodo_POCOS\obj\Debug\Komodo_UI.csproj.CoreCompileInputs.cache
 C:\Users\farid\Desktop\ElevenFiftyProjects\KomodoInsurance\KomodoInsurance\Komodo_POCOS\obj\Debug\Komodo_POCOS.exe
 C:\Users\farid\Desktop\ElevenFiftyProjects\KomodoInsurance\KomodoInsurance\Komodo_POCOS\obj\Debug\Komodo_POCOS.pdb
+C:\Users\farid\Desktop\ElevenFiftyProjects\KomodoInsurance\Komodo_POCOS\bin\Debug\Komodo_POCOS.exe.config
+C:\Users\farid\Desktop\ElevenFiftyProjects\KomodoInsurance\Komodo_POCOS\bin\Debug\Komodo_POCOS.exe
+C:\Users\farid\Desktop\ElevenFiftyProjects\KomodoInsurance\Komodo_POCOS\bin\Debug\Komodo_POCOS.pdb
+C:\Users\farid\Desktop\ElevenFiftyProjects\KomodoInsurance\Komodo_POCOS\bin\Debug\Komodo_Repository.dll
+C:\Users\farid\Desktop\ElevenFiftyProjects\KomodoInsurance\Komodo_POCOS\bin\Debug\Komodo_Repository.pdb
+C:\Users\farid\Desktop\ElevenFiftyProjects\KomodoInsurance\Komodo_POCOS\obj\Debug\Komodo_UI.csprojAssemblyReference.cache
+C:\Users\farid\Desktop\ElevenFiftyProjects\KomodoInsurance\Komodo_POCOS\obj\Debug\Komodo_UI.csproj.CoreCompileInputs.cache
+C:\Users\farid\Desktop\ElevenFiftyProjects\KomodoInsurance\Komodo_POCOS\obj\Debug\Komodo_UI.csproj.CopyComplete
+C:\Users\farid\Desktop\ElevenFiftyProjects\KomodoInsurance\Komodo_POCOS\obj\Debug\Komodo_POCOS.exe
+C:\Users\farid\Desktop\ElevenFiftyProjects\KomodoInsurance\Komodo_POCOS\obj\Debug\Komodo_POCOS.pdb
