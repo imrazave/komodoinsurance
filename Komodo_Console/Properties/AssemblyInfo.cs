@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Komodo_POCOS")]
+[assembly: AssemblyTitle("Komodo_Console")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Komodo_POCOS")]
+[assembly: AssemblyProduct("Komodo_Console")]
 [assembly: AssemblyCopyright("Copyright ©  2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("9861e279-6edf-4f0d-9316-5eb109036a1a")]
+[assembly: Guid("0b4a06a4-a6ad-4ccb-8ce3-1ccad6cb8532")]
 
 // Version information for an assembly consists of the following four values:
 //
