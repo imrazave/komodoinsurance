@@ -13,14 +13,16 @@ namespace Komodo_Repository
         public string LastName { get; set; }
         public int EmployeeID { get; set; }
         public bool HasPluralsightAccess { get; set; }
+        public int TeamID { get; set; }
 
         public Developer() { }
-        public Developer(string firstName, string lastName, int employeeId, bool hasPluralSight)
+        public Developer(string firstName, string lastName, int employeeId, bool hasPluralSight, int teamId)
         {
             FirstName = firstName;
             LastName = lastName;
             EmployeeID = employeeId;
             HasPluralsightAccess = hasPluralSight;
+            TeamID = teamId;
         }
     }
 }

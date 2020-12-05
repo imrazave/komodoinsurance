@@ -15,6 +15,30 @@ namespace Komodo_Repository
         {
             _listOfTeams.Add(team);
         }
+
+        public bool AddDeveloperToTeam(int teamId, Developer dev)
+        {
+            DevTeam team = GetTeamByID(teamId);
+            
+
+            int initialCount = team.TeamMembers.Count;
+            if (dev == null)
+            {
+                return false;
+            }
+
+            team.TeamMembers.Add(dev);
+
+            if (initialCount < team.TeamMembers.Count)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         //Read
         public List<DevTeam> GetDevTeamList()
         {
@@ -41,6 +65,8 @@ namespace Komodo_Repository
             }
         }
         //Delete
+
+        //Remove a team from list
         public bool RemoveTeamFromList(int teamId)
         {
             DevTeam team = GetTeamByID(teamId);
@@ -61,6 +87,21 @@ namespace Komodo_Repository
             {
                 return false;
             }
+        }
+        //Remove a developer from a team
+        public bool RemoveDeveloperFromTeam(int teamId, Developer dev)
+        {
+            DevTeam team = GetTeamByID(teamId);
+
+            foreach (Developer developer in team.TeamMembers)
+            {
+                if (developer.EmployeeID == dev.EmployeeID)
+                {
+                    team.TeamMembers.Remove(developer);
+                    return true;
+                }
+            }
+            return false;
         }
         //Helper
         public DevTeam GetTeamByID(int teamId)

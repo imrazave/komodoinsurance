@@ -37,8 +37,9 @@ namespace Komodo_POCOS
                     "8. Update A Team\n" +
                     "9. Delete A Team\n" +
                     "10. Return A List Of Developers Needing PluralSight\n" +
-                    "11. Add Multiple Developers To A Team\n" +
-                    "12. Exit");
+                    "11. Add A Developer To A Team\n" +
+                    "12. Remove A Developer From A Team\n" +
+                    "13. Exit");
                 // Get the user's input
                 string input = Console.ReadLine();
 
@@ -86,10 +87,14 @@ namespace Komodo_POCOS
                         PluralSight();
                         break;
                     case "11":
-                        //Add Multiple Developers to a Team
+                        //Add a developer to a Team
                         MultiDev();
                         break;
                     case "12":
+                        //Remove a developer from a Team
+                        RemoveDev();
+                        break;
+                    case "13":
                         //Exit
                         Console.WriteLine("Good Bye!");
                         keepRunning = false;
@@ -351,10 +356,10 @@ namespace Komodo_POCOS
 
             {
                 Console.WriteLine("Would you like to add a developer to your team at this time? (y/n)");
-                ViewAllDevelopers();
                 string addDevToTeam = Console.ReadLine();
                 if (addDevToTeam == "y")
                 {
+                    ViewAllDevelopers();
                     Console.WriteLine("Enter the ID of the developer you would like to add");
                     string stringDevId = Console.ReadLine();
                     int devId = int.Parse(stringDevId);
@@ -366,8 +371,8 @@ namespace Komodo_POCOS
                 }
             }
 
-            // Verify the update worked 
-            bool wasUpdated = _devTeamRepo.UpdateTeamsFromList(OldTeamID, newDevTeam);
+                // Verify the update worked 
+                bool wasUpdated = _devTeamRepo.UpdateTeamsFromList(OldTeamID, newDevTeam);
 
             if (wasUpdated)
             {
@@ -412,14 +417,63 @@ namespace Komodo_POCOS
         //Add Multiple Developers to a Team
         private void MultiDev()
         {
-            UpdateATeam();
+            ViewAllDevelopers();
+
+            Console.WriteLine("Specify the developer you would like to add to the team");
+
+            string devIdInput = Console.ReadLine();
+            int devId = int.Parse(devIdInput);
+            Developer dev = _devRepo.GetDeveloperByID(devId);
+
+            Console.WriteLine("Specify the team that you would like to add the developer to");
+
+            string teamIdInput = Console.ReadLine();
+            int teamId = int.Parse(teamIdInput);
+
+            bool wasAdded = _devTeamRepo.AddDeveloperToTeam(teamId, dev);
+
+            if (wasAdded)
+            {
+                Console.WriteLine("The developer was successfully added.");
+            }
+            else
+            {
+                Console.WriteLine("The developer was not added.");
+            }
+        }
+        //Remove a developer from a Team
+        private void RemoveDev()
+        {
+            ViewAllDevelopers();
+
+            Console.WriteLine("Specify the developer you would like to remove");
+
+            string devIdInput = Console.ReadLine();
+            int devId = int.Parse(devIdInput);
+            Developer dev = _devRepo.GetDeveloperByID(devId);
+
+            Console.WriteLine("Specify the team that you would like to remove the developer from");
+
+            string teamIdInput = Console.ReadLine();
+            int teamId = int.Parse(teamIdInput);
+
+            bool wasDeleted = _devTeamRepo.RemoveDeveloperFromTeam(teamId,dev);
+
+            if (wasDeleted)
+            {
+                Console.WriteLine("The developer was successfully removed.");
+            }
+            else
+            {
+                Console.WriteLine("The developer was not removed.");
+            }
         }
         //Seed methods
         private void SeedDeveloperList()
         {
-            Developer daveSmith = new Developer("Dave", "Smith", 1, true);
-            Developer joeKemp = new Developer("Joe", "Kemp", 2, false);
-            Developer brianJones = new Developer("Brian", "Jones", 3, true);
+            Developer daveSmith = new Developer("Dave", "Smith", 1, true, 1);
+            Developer joeKemp = new Developer("Joe", "Kemp", 2, false, 1);
+            Developer brianJones = new Developer("Brian", "Jones", 3, true, 1);
 
             _devRepo.AddDeveloperToList(daveSmith);
             _devRepo.AddDeveloperToList(joeKemp);

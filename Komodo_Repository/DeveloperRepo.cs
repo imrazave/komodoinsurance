@@ -35,6 +35,7 @@ namespace Komodo_Repository
                 oldDev.FirstName = newDev.FirstName;
                 oldDev.LastName = newDev.LastName;
                 oldDev.HasPluralsightAccess = newDev.HasPluralsightAccess;
+                oldDev.TeamID = newDev.TeamID;
 
                 return true;
             }
