@@ -12,7 +12,7 @@ namespace Komodo_Repository
         public string TeamName { get; set; }
         public int TeamID { get; set; }
 
-        public List<Developer> Developers { get; set; }
+        public List<Developer> TeamMembers { get; set; } = new List<Developer>();
 
         public DevTeam() { }
 

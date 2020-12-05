@@ -258,11 +258,11 @@ namespace Komodo_POCOS
             //If the content was deleted, say so
             if (wasDeleted)
             {
-                Console.WriteLine("The content was successfully deleted.");
+                Console.WriteLine("The developer was successfully deleted.");
             }
             else
             {
-                Console.WriteLine("The content could not be deleted.");
+                Console.WriteLine("The developer could not be deleted.");
             }
         }
         //Create new team
@@ -280,6 +280,28 @@ namespace Komodo_POCOS
             Console.WriteLine("Enter A Team Name");
             newDevTeam.TeamName = Console.ReadLine();
 
+            //Developers on Team
+            ViewAllDevelopers();
+
+            bool keepRunning = true;
+            while (keepRunning)
+
+            {
+                Console.WriteLine("Would you like to add a developer to your team at this time? (y/n)");
+                string addDevToTeam = Console.ReadLine();
+                if (addDevToTeam == "y")
+                {
+                    Console.WriteLine("Enter the ID of the developer you would like to add");
+                    string stringDevId = Console.ReadLine();
+                    int devId = int.Parse(stringDevId);
+                    newDevTeam.TeamMembers.Add(_devRepo.GetDeveloperByID(devId));
+                }
+                else
+                {
+                    keepRunning = false;
+                }
+            }
+
             _devTeamRepo.AddTeamToList(newDevTeam);
 
         }
@@ -294,7 +316,8 @@ namespace Komodo_POCOS
             foreach (DevTeam team in listOfTeams)
             {
                 Console.WriteLine($"Team ID: {team.TeamID}\n" +
-                    $"Team Name: {team.TeamName}\n");
+                    $"Team Name: {team.TeamName}\n" +
+                    $"Team Members: {team.TeamMembers.Count}");
             }
         }
         //Update a team
@@ -321,6 +344,27 @@ namespace Komodo_POCOS
             //TeamName
             Console.WriteLine("Enter A Team Name");
             newDevTeam.TeamName = Console.ReadLine();
+
+            //TeamMembers Add
+            bool keepRunning = true;
+            while (keepRunning)
+
+            {
+                Console.WriteLine("Would you like to add a developer to your team at this time? (y/n)");
+                ViewAllDevelopers();
+                string addDevToTeam = Console.ReadLine();
+                if (addDevToTeam == "y")
+                {
+                    Console.WriteLine("Enter the ID of the developer you would like to add");
+                    string stringDevId = Console.ReadLine();
+                    int devId = int.Parse(stringDevId);
+                    newDevTeam.TeamMembers.Add(_devRepo.GetDeveloperByID(devId));
+                }
+                else
+                {
+                    keepRunning = false;
+                }
+            }
 
             // Verify the update worked 
             bool wasUpdated = _devTeamRepo.UpdateTeamsFromList(OldTeamID, newDevTeam);
@@ -363,12 +407,12 @@ namespace Komodo_POCOS
         //Return a list of developers needing PluralSight
         private void PluralSight()
         {
-
+            ViewAllDevelopers();
         }
         //Add Multiple Developers to a Team
         private void MultiDev()
         {
-
+            UpdateATeam();
         }
         //Seed methods
         private void SeedDeveloperList()

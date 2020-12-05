@@ -31,6 +31,7 @@ namespace Komodo_Repository
             {
                 oldTeam.TeamID = newTeam.TeamID;
                 oldTeam.TeamName = newTeam.TeamName;
+                oldTeam.TeamMembers = newTeam.TeamMembers;
 
                 return true;
             }
